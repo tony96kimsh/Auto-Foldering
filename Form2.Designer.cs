@@ -40,7 +40,7 @@
             this.lblOrgLoc = new System.Windows.Forms.Label();
             this.btnChangeSave = new System.Windows.Forms.Button();
             this.lblSaveLoc = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExecute = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -193,14 +193,15 @@
             this.lblSaveLoc.TabIndex = 18;
             this.lblSaveLoc.Text = ".../test/test/tes.testst";
             // 
-            // button2
+            // btnExecute
             // 
-            this.button2.Location = new System.Drawing.Point(32, 488);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(485, 124);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "실행";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExecute.Location = new System.Drawing.Point(32, 488);
+            this.btnExecute.Name = "btnExecute";
+            this.btnExecute.Size = new System.Drawing.Size(485, 124);
+            this.btnExecute.TabIndex = 19;
+            this.btnExecute.Text = "실행";
+            this.btnExecute.UseVisualStyleBackColor = true;
+            this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
             // 
             // label2
             // 
@@ -253,7 +254,7 @@
             this.ClientSize = new System.Drawing.Size(555, 651);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExecute);
             this.Controls.Add(this.lblSaveLoc);
             this.Controls.Add(this.btnChangeSave);
             this.Controls.Add(this.lblOrgLoc);
@@ -291,7 +292,7 @@
         private System.Windows.Forms.Label lblOrgLoc;
         private System.Windows.Forms.Button btnChangeSave;
         private System.Windows.Forms.Label lblSaveLoc;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExecute;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;

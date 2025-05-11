@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,8 @@ namespace Auto_Foldering
             InitializeComponent();
             receivedFiles = files;
             selectedDirectory = directory;
-            
+            toSaveLoc = directory;
+
             //if (receivedFiles != null && receivedFiles.Length > 0)
             //    MessageBox.Show("첫 파일: " + receivedFiles[0]);
             //if (!string.IsNullOrEmpty(selectedDirectory))
@@ -35,6 +38,7 @@ namespace Auto_Foldering
 
             lblOrgLoc.Text = selectedDirectory;
             lblSaveLoc.Text = selectedDirectory;
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -144,6 +148,40 @@ namespace Auto_Foldering
             {
                 inpFileUnit.Text = "";
                 inpFileUnit.ForeColor = Color.Black;
+            }
+        }
+
+        private void btnExecute_Click(object sender, EventArgs e)
+        {
+            /*
+             대표 >> 연간 체크 케이스
+            1. 파일의 시간을 읽는다.
+            2. 연간을 뽑아낸다.
+            3. 폴더를 만든다 (없으면 생성 있으면 유지)
+            4. 폴더 경로에 파일을 넣는다.
+             */
+            if (radYear.Checked)
+            {
+                /*
+                receivedFiles 파일 리스트
+                toSaveLoc 저장 경로
+                 */
+                foreach (string file in receivedFiles)
+                {
+                    DateTime createTime = File.GetCreationTime(file);
+                    string year = createTime.ToString("yyyy");
+                    string folderPath = Path.Combine(toSaveLoc, year);
+                    string fileName = Path.GetFileName(file);
+                    string targetPath = Path.Combine(folderPath, fileName);
+
+
+                    // 폴더 생성
+                    MessageBox.Show(folderPath);
+                    MessageBox.Show(toSaveLoc);
+                    Directory.CreateDirectory(folderPath);
+                    //File.Copy(원본파일, 대상파일경로) 
+                    File.Copy(file, targetPath, overwrite: true);
+                }
             }
         }
     }
