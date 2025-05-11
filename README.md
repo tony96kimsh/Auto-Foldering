@@ -1,8 +1,10 @@
 # Auto Foldering (날짜별 윈도우 파일 정리 앱)
 > .NET 프레임워크의 UI 라이브러리 WinForms을 활용한 C# 프로젝트
 
-![alt text](image.png) | ![alt text](image-1.png)
+![alt text](./img/image.png) | ![alt text](./img/image-1.png)
 --|--
+
+- [EXE 다운로드 링크]()
 
 ## 프로젝트 개요
 
