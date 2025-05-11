@@ -68,7 +68,7 @@
             this.label1.Location = new System.Drawing.Point(106, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 48);
+            this.label1.Size = new System.Drawing.Size(351, 60);
             this.label1.TabIndex = 1;
             this.label1.Text = "정리 형식 선택하기";
             // 
@@ -81,7 +81,7 @@
             this.radYear.Location = new System.Drawing.Point(45, 325);
             this.radYear.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.radYear.Name = "radYear";
-            this.radYear.Size = new System.Drawing.Size(85, 29);
+            this.radYear.Size = new System.Drawing.Size(101, 34);
             this.radYear.TabIndex = 5;
             this.radYear.TabStop = true;
             this.radYear.Text = "년 Year";
@@ -96,7 +96,7 @@
             this.radMonth.Location = new System.Drawing.Point(158, 325);
             this.radMonth.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.radMonth.Name = "radMonth";
-            this.radMonth.Size = new System.Drawing.Size(101, 29);
+            this.radMonth.Size = new System.Drawing.Size(123, 34);
             this.radMonth.TabIndex = 6;
             this.radMonth.TabStop = true;
             this.radMonth.Text = "월 Month";
@@ -111,7 +111,7 @@
             this.radDay.Location = new System.Drawing.Point(418, 325);
             this.radDay.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.radDay.Name = "radDay";
-            this.radDay.Size = new System.Drawing.Size(82, 29);
+            this.radDay.Size = new System.Drawing.Size(96, 34);
             this.radDay.TabIndex = 7;
             this.radDay.TabStop = true;
             this.radDay.Text = "일 Day";
@@ -126,7 +126,7 @@
             this.radWeek.Location = new System.Drawing.Point(293, 325);
             this.radWeek.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.radWeek.Name = "radWeek";
-            this.radWeek.Size = new System.Drawing.Size(93, 29);
+            this.radWeek.Size = new System.Drawing.Size(113, 34);
             this.radWeek.TabIndex = 8;
             this.radWeek.TabStop = true;
             this.radWeek.Text = "주 Week";
@@ -141,7 +141,7 @@
             this.radFileUnit.Location = new System.Drawing.Point(44, 384);
             this.radFileUnit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.radFileUnit.Name = "radFileUnit";
-            this.radFileUnit.Size = new System.Drawing.Size(168, 29);
+            this.radFileUnit.Size = new System.Drawing.Size(198, 34);
             this.radFileUnit.TabIndex = 11;
             this.radFileUnit.TabStop = true;
             this.radFileUnit.Text = "파일 개수로 나누기";
@@ -155,7 +155,7 @@
             this.inpFileUnit.MaxLength = 10;
             this.inpFileUnit.Name = "inpFileUnit";
             this.inpFileUnit.ReadOnly = true;
-            this.inpFileUnit.Size = new System.Drawing.Size(265, 38);
+            this.inpFileUnit.Size = new System.Drawing.Size(265, 46);
             this.inpFileUnit.TabIndex = 12;
             this.inpFileUnit.Enter += new System.EventHandler(this.inpFileUnit_Enter);
             this.inpFileUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inpFileUnit_KeyPress);
@@ -167,7 +167,7 @@
             this.lblOrgLoc.Font = new System.Drawing.Font("Noto Sans KR", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrgLoc.Location = new System.Drawing.Point(118, 112);
             this.lblOrgLoc.Name = "lblOrgLoc";
-            this.lblOrgLoc.Size = new System.Drawing.Size(162, 24);
+            this.lblOrgLoc.Size = new System.Drawing.Size(213, 29);
             this.lblOrgLoc.TabIndex = 14;
             this.lblOrgLoc.Text = ".../test/test/tes.testst";
             // 
@@ -189,7 +189,7 @@
             this.lblSaveLoc.Location = new System.Drawing.Point(118, 173);
             this.lblSaveLoc.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblSaveLoc.Name = "lblSaveLoc";
-            this.lblSaveLoc.Size = new System.Drawing.Size(178, 24);
+            this.lblSaveLoc.Size = new System.Drawing.Size(220, 29);
             this.lblSaveLoc.TabIndex = 18;
             this.lblSaveLoc.Text = ".../test/test/tes.testst";
             // 
@@ -209,7 +209,7 @@
             this.label2.Font = new System.Drawing.Font("Noto Sans KR Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 27);
+            this.label2.Size = new System.Drawing.Size(110, 35);
             this.label2.TabIndex = 20;
             this.label2.Text = "정리 파일";
             // 
@@ -219,7 +219,7 @@
             this.label3.Font = new System.Drawing.Font("Noto Sans KR Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 27);
+            this.label3.Size = new System.Drawing.Size(110, 35);
             this.label3.TabIndex = 21;
             this.label3.Text = "저장 위치";
             // 
@@ -243,13 +243,13 @@
             this.lblPlaceholder.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.lblPlaceholder.Location = new System.Drawing.Point(225, 108);
             this.lblPlaceholder.Name = "lblPlaceholder";
-            this.lblPlaceholder.Size = new System.Drawing.Size(190, 30);
+            this.lblPlaceholder.Size = new System.Drawing.Size(250, 39);
             this.lblPlaceholder.TabIndex = 23;
             this.lblPlaceholder.Text = "숫자만 입력해주세요";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 651);
             this.Controls.Add(this.label3);

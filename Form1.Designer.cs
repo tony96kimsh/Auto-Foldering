@@ -49,7 +49,7 @@
             // btnOpenFold
             // 
             this.btnOpenFold.Location = new System.Drawing.Point(17, 123);
-            this.btnOpenFold.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenFold.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenFold.Name = "btnOpenFold";
             this.btnOpenFold.Size = new System.Drawing.Size(223, 131);
             this.btnOpenFold.TabIndex = 1;
@@ -75,7 +75,7 @@
             // btnOpenFile
             // 
             this.btnOpenFile.Location = new System.Drawing.Point(257, 123);
-            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(223, 131);
             this.btnOpenFile.TabIndex = 3;
@@ -101,6 +101,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "Form1";
             this.Text = "Auto Foldering | 자동 파일 정리";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

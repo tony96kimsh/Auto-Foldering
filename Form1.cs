@@ -20,6 +20,7 @@ namespace Auto_Foldering
         public Form1()
         {
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -69,6 +70,11 @@ namespace Auto_Foldering
                 form2.Show();
                 this.Hide();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

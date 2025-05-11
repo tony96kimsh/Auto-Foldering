@@ -17,6 +17,9 @@
 - System.IO (파일/디렉토리 처리)
 
 ### 주요 기능
+
+![대표 동작 로직](./img/testing.gif)
+
 1. OpenFileDialog를 통해 정리 대상 파일 선택
 2. FolderBrowserDialog를 통해 저장 경로 설정
 3. 파일 생성일 기준으로 연/월/주 폴더 자동 생성
