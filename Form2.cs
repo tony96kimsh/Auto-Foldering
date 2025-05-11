@@ -11,6 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+// MetadataExtractor - 사진 영상 파일 날짜 리딩 라이브러리
+using MetadataExtractor;
+using MetadataExtractor.Formats.Exif;
+using MetadataExtractor.Formats.QuickTime;
+// TagLibSharp - 음악 날짜 리딩 라이브러리
+using TagLib;
+
+
+
 namespace Auto_Foldering
 {
     public partial class Form2 : Form
@@ -163,7 +172,7 @@ namespace Auto_Foldering
                     // DateTime createTime = File.GetCreationTime(file);
                     // string year = createTime.ToString("yyyy");
 
-                    // 수정: 촬영일자 → 없으면 생성일자
+                    // 수정: 원본(촬영)일자 → 없으면 생성일자
                     DateTime useTime = GetDateTakenOrCreated(file);
                     string year = useTime.ToString("yyyy");
 
@@ -171,8 +180,8 @@ namespace Auto_Foldering
                     string fileName = Path.GetFileName(file);
                     string targetPath = Path.Combine(folderPath, fileName);
 
-                    Directory.CreateDirectory(folderPath);
-                    File.Copy(file, targetPath, overwrite: true);
+                    System.IO.Directory.CreateDirectory(folderPath);
+                    System.IO.File.Copy(file, targetPath, overwrite: true);
                 }
                 // 종료
                 MessageBox.Show("완료되었습니다.");
@@ -186,32 +195,34 @@ namespace Auto_Foldering
         {
             try
             {
-                using (var img = Image.FromFile(path))
-                {
-                    const int DateTakenId = 36867; // EXIF 태그: DateTimeOriginal
+                var directories = ImageMetadataReader.ReadMetadata(path);
 
-                    if (img.PropertyIdList.Contains(DateTakenId))
-                    {
-                        var propItem = img.GetPropertyItem(DateTakenId);
-                        string dateStr = Encoding.ASCII.GetString(propItem.Value).Trim('\0');
+                var exif = directories.OfType<ExifSubIfdDirectory>().FirstOrDefault();
+                if (exif != null && exif.TryGetDateTime(ExifDirectoryBase.TagDateTimeOriginal, out DateTime exifDate))
+                    return exifDate;
 
-                        if (DateTime.TryParseExact(dateStr, "yyyy:MM:dd HH:mm:ss",
-                            null, System.Globalization.DateTimeStyles.None,
-                            out DateTime takenDate))
-                        {
-                            return takenDate;
-                        }
-                    }
-                }
+                var quickTime = directories.OfType<QuickTimeMovieHeaderDirectory>().FirstOrDefault();
+                if (quickTime != null && quickTime.TryGetDateTime(QuickTimeMovieHeaderDirectory.TagCreated, out DateTime videoDate))
+                    return videoDate;
             }
             catch
             {
-                // 이미지가 아니거나 EXIF를 읽을 수 없을 때
+                // MetadataExtractor 실패 시 무시
             }
 
-            // fallback: 파일 생성일자
-            return File.GetCreationTime(path);
-        }
+            // TagLib으로 음악 날짜 추출
+            try
+            {
+                var audioFile = TagLib.File.Create(path);
+                if (audioFile.Tag.Year > 0)
+                    return new DateTime((int)audioFile.Tag.Year, 1, 1);
+            }
+            catch
+            {
+                // 음악 파일 아님
+            }
 
+            return System.IO.File.GetCreationTime(path);
+        }
     }
 }
