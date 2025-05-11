@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPlaceholder = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,11 +248,24 @@
             this.lblPlaceholder.TabIndex = 23;
             this.lblPlaceholder.Text = "숫자만 입력해주세요";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Noto Sans KR", 9F);
+            this.label4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label4.Location = new System.Drawing.Point(32, 621);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(286, 21);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "기존 파일 유지되며 복사 파일로 저장됩니다.";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 651);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExecute);
@@ -297,5 +311,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblPlaceholder;
+        private System.Windows.Forms.Label label4;
     }
 }

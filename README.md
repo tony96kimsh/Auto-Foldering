@@ -68,7 +68,9 @@ Auto_Foldering/
 - `Directory.CreateDirectory()`로 폴더 생성
 - `File.Copy()`로 정리 경로에 복사
 
-#### 🧭 연간 날짜 구분으로 실행 시, 판별 로직 다이어그램
+<br>
+
+### 🧭 연간 날짜 구분으로 실행 시, 판별 로직 다이어그램
 
 ```mermaid
 flowchart TD
@@ -96,6 +98,7 @@ flowchart TD
     I --> J[Create folder if it doesn't exist]    
 ```
 
+<br>
 
 ## 🚧 추후 작업 및 이슈
 
@@ -112,6 +115,7 @@ flowchart TD
 ## 📚 Reference
 
 ### 📦 NuGet Package
+![alt text](./img/nuget-list.png)
 - [MetadataExtractor](https://github.com/drewnoakes/metadata-extractor-dotnet)  
   이미지 및 영상 파일의 메타데이터(EXIF, QuickTime 등)를 읽기 위한 라이브러리.  
   사진의 촬영일자, 영상의 생성일자 등을 추출할 수 있음.

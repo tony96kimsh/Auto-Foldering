@@ -117,6 +117,7 @@ namespace Auto_Foldering
 
         private void radWeek_CheckedChanged(object sender, EventArgs e)
         {
+            MessageBox.Show("주간 선택 시, 월요일부터 일요일 기준으로 정리됩니다. \n 폴더 형식 \"yyyy-MM-dd_yyyy-MM-dd\" ");
         }
 
         private void radFileUnit_CheckedChanged(object sender, EventArgs e)
@@ -154,41 +155,60 @@ namespace Auto_Foldering
                 inpFileUnit.ForeColor = Color.Black;
             }
         }
-
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            /*
-             대표 >> 연간 체크 케이스
-            1. 파일의 시간을 읽는다. (촬영일자 우선, 없으면 생성일자)
-            2. 연간을 뽑아낸다.
-            3. 폴더를 만든다 (없으면 생성, 있으면 유지)
-            4. 폴더 경로에 파일을 넣는다.
-             */
-            if (radYear.Checked)
+            if (receivedFiles == null || receivedFiles.Length == 0)
             {
-                foreach (string file in receivedFiles)
-                {
-                    // 기존 방식 (생성일 기준)
-                    // DateTime createTime = File.GetCreationTime(file);
-                    // string year = createTime.ToString("yyyy");
-
-                    // 수정: 원본(촬영)일자 → 없으면 생성일자
-                    DateTime useTime = GetDateTakenOrCreated(file);
-                    string year = useTime.ToString("yyyy");
-
-                    string folderPath = Path.Combine(toSaveLoc, year);
-                    string fileName = Path.GetFileName(file);
-                    string targetPath = Path.Combine(folderPath, fileName);
-
-                    System.IO.Directory.CreateDirectory(folderPath);
-                    System.IO.File.Copy(file, targetPath, overwrite: true);
-                }
-                // 종료
-                MessageBox.Show("완료되었습니다.");
-                Form1 form1 = new Form1();
-                form1.Show();
-                this.Close();  // Form2 닫기
+                MessageBox.Show("파일이 선택되지 않았습니다.");
+                return;
             }
+
+            foreach (string file in receivedFiles)
+            {
+                DateTime useTime = GetDateTakenOrCreated(file);
+                string folderName = "";
+
+                if (radYear.Checked)
+                {
+                    folderName = useTime.ToString("yyyy");
+                }
+                else if (radMonth.Checked)
+                {
+                    folderName = useTime.ToString("yyyy-MM");
+                }
+                else if (radWeek.Checked)
+                {
+                    // 주간 해당 주 월요일 ~ 일요일 기준 구분
+
+                    // 현재 날짜에서 해당 주의 월요일 구함
+                    int diff = (7 + (useTime.DayOfWeek - DayOfWeek.Monday)) % 7;
+                    DateTime monday = useTime.AddDays(-1 * diff).Date;
+                    DateTime sunday = monday.AddDays(6);
+
+                    folderName = $"{monday:yyyy-MM-dd}_{sunday:MM-dd}";
+                }
+                else if (radDay.Checked)
+                {
+                    folderName = useTime.ToString("yyyy-MM-dd");
+                }
+                else
+                {
+                    MessageBox.Show("정리 기준을 선택해주세요.");
+                    return;
+                }
+
+                string folderPath = Path.Combine(toSaveLoc, folderName);
+                string fileName = Path.GetFileName(file);
+                string targetPath = Path.Combine(folderPath, fileName);
+
+                System.IO.Directory.CreateDirectory(folderPath);
+                System.IO.File.Copy(file, targetPath, overwrite: true);
+            }
+
+            MessageBox.Show("완료되었습니다.");
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
 
         private DateTime GetDateTakenOrCreated(string path)
