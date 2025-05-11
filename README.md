@@ -4,7 +4,7 @@
 ![alt text](./img/image.png) | ![alt text](./img/image-1.png)
 --|--
 
-- [EXE 다운로드 링크]()
+- [EXE 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/Auto-Foldering.exe)
 
 ## 프로젝트 개요
 
