@@ -4,13 +4,13 @@
 ![alt text](./img/image.png) | ![alt text](./img/image-1.png)
 --|--
 
-- **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Debug.zip)** (압축 해제 후 EXE 파일 실행)
+- **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Debug.zip)** (압축 해제 후 `Auto-Foldering.exe` 파일 실행)
 
 
 ## 📝 프로젝트 개요
 
 ### 💡 제작 배경
-윈도우 환경에서 많은 파일을 일일이 폴더를 만들어 정리하는 건 힘든 일입니다. **대부분의 경우 시간 기준으로 폴더를 나누는 것만으로도 충분**하나, 일일이 손으로 하기에는 너무 많이 시간이 듭니다. 해당 문제를 해결하기 위해 여러 파일을 생성 **날짜 기준으로 자동 분류 및 폴더링**해주는 데스크탑 어플리케이션을 제작하게 되었습니다.
+- 윈도우 환경에서 많은 파일을 일일이 폴더를 만들어 정리하는 건 힘든 일입니다. **대부분의 경우 시간 기준으로 폴더를 나누는 것만으로도 충분**하나, 일일이 손으로 하기에는 많은 시간이 듭니다. 그래서 여러 파일을 **생성 날짜 기준으로 자동 분류 및 폴더링**해주는 데스크탑 어플리케이션을 제작하게 되었습니다.
 
 ### 🛠️ 기술 스택
 - C# (.NET Framework)
@@ -125,4 +125,4 @@ flowchart TD
   JPEG, PDF 등에서 사용되는 XMP 메타데이터 처리를 지원함.
 
 ### 🖼️ Image
-- [앱 아이콘 MS 이모지 🗄 이미지 사용](https://www.emojiall.com/ko/image/🗄)
+- [앱 아이콘 EmojiDex 이미지 사용](https://www.emojiall.com/ko/image/🗄)
