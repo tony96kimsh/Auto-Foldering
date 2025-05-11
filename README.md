@@ -12,7 +12,6 @@
 ### 기술 스택
 - C# (.NET Framework)
 - WinForms (윈도우 UI 프레임워크)
-- Visual Studio
 - System.IO (파일/디렉토리 처리)
 
 ### 주요 기능
