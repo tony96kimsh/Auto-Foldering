@@ -1,23 +1,24 @@
-# Auto Foldering (날짜별 윈도우 파일 정리 앱)
+# 🗂️ Auto Foldering (날짜별 윈도우 파일 정리 앱)
 > .NET 프레임워크의 UI 라이브러리 WinForms을 활용한 C# 프로젝트
 
 ![alt text](./img/image.png) | ![alt text](./img/image-1.png)
 --|--
 
-- [EXE 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/Debug.zip)
+- **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Debug.zip)** (압축 해제 후 EXE 파일 실행)
 
-## 프로젝트 개요
 
-### 제작 배경
+## 📝 프로젝트 개요
+
+### 💡 제작 배경
 윈도우 환경에서 많은 파일을 일일이 폴더를 만들어 정리하는 건 힘든 일입니다. **대부분의 경우 시간 기준으로 폴더를 나누는 것만으로도 충분**하나, 일일이 손으로 하기에는 너무 많이 시간이 듭니다. 해당 문제를 해결하기 위해 여러 파일을 생성 **날짜 기준으로 자동 분류 및 폴더링**해주는 데스크탑 어플리케이션을 제작하게 되었습니다.
 
-### 기술 스택
+### 🛠️ 기술 스택
 - C# (.NET Framework)
 - WinForms (윈도우 UI 프레임워크)
 - System.IO (파일/디렉토리 처리)
 - NuGet Package(`MetadataExtractor`, `TagLibSharp`)
 
-### 주요 기능
+### ✨ 주요 기능
 
 ![대표 동작 로직](./img/testing.gif)
 
@@ -33,13 +34,13 @@
 
 7. 정리 실행 후 결과 확인 메시지 제공
 
-## 프로젝트 구조
+## 🧱 프로젝트 구조
 
-### 레이아웃 구성
+### 🖼️ 레이아웃 구성
 - Form1: 파일 선택 및 저장 위치 지정, Form2로 이동
 - Form2: 정리 기준 선택, 실행 및 경로 표시
 
-### 폴더 구조
+### 📂 폴더 구조
 ```
 Auto_Foldering/
 ├── Form1.cs         # 초기 폴더/파일 선택 폼
@@ -50,7 +51,7 @@ Auto_Foldering/
     └── image.png
 ```
 
-### 코드 구조
+### 🧩 코드 구조
 
 #### Form1
 - `receivedFiles` 배열에 선택한 파일 저장
@@ -67,7 +68,7 @@ Auto_Foldering/
 - `Directory.CreateDirectory()`로 폴더 생성
 - `File.Copy()`로 정리 경로에 복사
 
-#### 연간 날짜 구분으로 실행 시, 판별 로직 다이어그램
+#### 🧭 연간 날짜 구분으로 실행 시, 판별 로직 다이어그램
 
 ```mermaid
 flowchart TD
@@ -96,21 +97,21 @@ flowchart TD
 ```
 
 
-## 추후 작업 및 이슈
+## 🚧 추후 작업 및 이슈
 
-### TODO
+### 📌 TODO
 - 중복 파일 처리 로직 개선
 - 정리 결과 요약 화면 또는 로그 기록 기능
 - 파일 복사, 이동 유무 토클 기능 추가 필요
 
-### Issues
+### 🐞 Issues
 - 파일 경로가 긴 경우 UI 레이블 표시 깨짐
 - 복수 파일 처리 시 성능 개선 필요
 - 비정상 파일명 예외처리 추가 예정
 
-## Reference
+## 📚 Reference
 
-### NuGet Package
+### 📦 NuGet Package
 - [MetadataExtractor](https://github.com/drewnoakes/metadata-extractor-dotnet)  
   이미지 및 영상 파일의 메타데이터(EXIF, QuickTime 등)를 읽기 위한 라이브러리.  
   사진의 촬영일자, 영상의 생성일자 등을 추출할 수 있음.
@@ -123,5 +124,5 @@ flowchart TD
   Adobe의 XMP 메타데이터를 처리하기 위한 라이브러리로, `MetadataExtractor`의 내부 동작에 필요.  
   JPEG, PDF 등에서 사용되는 XMP 메타데이터 처리를 지원함.
 
-### Image
+### 🖼️ Image
 - [앱 아이콘 MS 이모지 🗄 이미지 사용](https://www.emojiall.com/ko/image/🗄)
