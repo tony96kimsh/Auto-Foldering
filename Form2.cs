@@ -29,6 +29,7 @@ namespace Auto_Foldering
         private string selectedDirectory;
         private string toSaveLoc;
 
+        private bool isExiting = false;
         public Form2()
         {
             InitializeComponent();
@@ -168,6 +169,10 @@ namespace Auto_Foldering
                 DateTime useTime = GetDateTakenOrCreated(file);
                 string folderName = "";
 
+                string folderPath = Path.Combine(toSaveLoc, folderName);
+                string fileName = Path.GetFileName(file);
+                string targetPath = Path.Combine(folderPath, fileName);
+
                 if (radYear.Checked)
                 {
                     folderName = useTime.ToString("yyyy");
@@ -191,21 +196,71 @@ namespace Auto_Foldering
                 {
                     folderName = useTime.ToString("yyyy-MM-dd");
                 }
+
+                // 갯수별 구분
+                else if (radFileUnit.Checked)
+                {
+                    if (!int.TryParse(inpFileUnit.Text, out int unit) || unit <= 0)
+                    {
+                        MessageBox.Show("1 이상의 정수를 입력해주세요.");
+                        return;
+                    }
+
+                    // 파일을 날짜 기준으로 정렬
+                    var sorted = receivedFiles
+                        .Select(f => new { File = f, Date = GetDateTakenOrCreated(f) })
+                        .OrderBy(x => x.Date)
+                        .ToList();
+
+                    for (int i = 0; i < sorted.Count; i += unit)
+                    {
+                        var group = sorted.Skip(i).Take(unit).ToList();
+                        var start = group.First().Date;
+                        var end = group.Last().Date;
+                        folderName = $"{start:yyyy_MM_dd}_{end:yyyy_MM_dd}";
+                        folderPath = Path.Combine(toSaveLoc, folderName);
+
+                        System.IO.Directory.CreateDirectory(folderPath);
+
+                        foreach (var item in group)
+                        {
+                            fileName = Path.GetFileName(item.File);
+                            targetPath = Path.Combine(folderPath, fileName);
+                            System.IO.File.Copy(item.File, targetPath, overwrite: true);
+                        }
+                    }
+                }
+
                 else
                 {
                     MessageBox.Show("정리 기준을 선택해주세요.");
                     return;
                 }
 
-                string folderPath = Path.Combine(toSaveLoc, folderName);
-                string fileName = Path.GetFileName(file);
-                string targetPath = Path.Combine(folderPath, fileName);
+
 
                 System.IO.Directory.CreateDirectory(folderPath);
                 System.IO.File.Copy(file, targetPath, overwrite: true);
             }
 
             MessageBox.Show("완료되었습니다.");
+
+            // 탐색기에서 정리된 폴더 경로 열기
+            try
+            {
+                // 현재 폼이 있는 스크린의 위치를 기준으로 탐색기 실행
+                var screen = Screen.FromControl(this);
+                var folder = toSaveLoc;
+
+                // 탐색기 실행
+                Process.Start("explorer.exe", folder);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"탐색기를 여는 도중 오류가 발생했습니다: {ex.Message}");
+            }
+
+            // 폼 첫 화면 전환
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
@@ -243,6 +298,24 @@ namespace Auto_Foldering
             }
 
             return System.IO.File.GetCreationTime(path);
+        }
+
+        
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isExiting) return;  // 이미 종료 중이면 중복 확인 방지
+
+            DialogResult result = MessageBox.Show("정말 종료하시겠습니까?", "종료 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                isExiting = true;
+                Application.Exit();  // 여기서 다시 FormClosing이 호출될 수 있음 → 위에서 차단
+            }
         }
     }
 }
