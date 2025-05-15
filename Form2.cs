@@ -118,7 +118,10 @@ namespace Auto_Foldering
 
         private void radWeek_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("주간 선택 시, 월요일부터 일요일 기준으로 정리됩니다. \n 폴더 형식 \"yyyy-MM-dd_yyyy-MM-dd\" ");
+            if(radWeek.Checked)
+            {
+                MessageBox.Show("주간 선택 시, 월요일부터 일요일 기준으로 정리됩니다. \n 폴더 형식 \"yyyy-MM-dd_yyyy-MM-dd\" ");
+            }
         }
 
         private void radFileUnit_CheckedChanged(object sender, EventArgs e)

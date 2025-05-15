@@ -4,7 +4,7 @@
 ![alt text](./img/image.png) | ![alt text](./img/image-1.png)
 --|--
 
-- **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Debug.zip)** (압축 해제 후 `Auto-Foldering.exe` 파일 실행)
+- **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Release.zip)** (압축 해제 후 `Auto-Foldering.exe` 파일 실행)
 
 
 ## 📝 프로젝트 개요
