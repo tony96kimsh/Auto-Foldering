@@ -26,7 +26,7 @@ namespace Auto_Foldering
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // 설명서 링크
-            string url = "https://tinyurl.com/AutoFoldering";
+            string url = "https://github.com/tony96kimsh/Auto-Foldering/blob/main/%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95.md";
 
             try
             {

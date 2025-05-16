@@ -1,7 +1,7 @@
 # 🗂️ Auto Foldering (날짜별 윈도우 파일 정리 앱)
 > .NET 프레임워크의 UI 라이브러리 WinForms을 활용한 C# 프로젝트
 
- ![logic](./img/logic.png) |![form1](./img/image.png) | ![alt text](./img/image-1.png)
+ ![logic](./img/logic.jpg) |![form1](./img/image.jpg) | ![alt text](./img/image-1.jpg)
 --|--|--
 
 - **[⬇ 실행 파일 다운로드 링크](https://github.com/tony96kimsh/Auto-Foldering/raw/refs/heads/main/bin/Release.zip)** (압축 해제 후 `Auto-Foldering.exe` 파일 실행)
